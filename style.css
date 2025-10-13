@@ -1,5 +1,35 @@
 /* ========================================= */
-/* RESET BÁSICO                */
+/* IMPORTAÇÃO DE FONTES                      */
+/* ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ========================================= */
+/* VARIÁVEIS CSS                             */
+/* ========================================= */
+:root {
+    --primary-color: #1e40af;
+    --primary-dark: #1e3a8a;
+    --primary-light: #3b82f6;
+    --secondary-color: #475569;
+    --success-color: #059669;
+    --warning-color: #d97706;
+    --danger-color: #dc2626;
+    --background: #f1f5f9;
+    --surface: #ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+    --border-color: #cbd5e1;
+    --border-light: #e2e8f0;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.08);
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+}
+
+/* ========================================= */
+/* RESET BÁSICO                              */
 /* ========================================= */
 * {
     box-sizing: border-box;
@@ -8,217 +38,456 @@
 }
 
 /* ========================================= */
-/* ESTILOS GLOBAIS (BODY)        */
+/* ESTILOS GLOBAIS                           */
 /* ========================================= */
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background: linear-gradient(
-        135deg,
-        #6e7d9a,
-        #4a6a94
-    ); /* Tons de azul-acinzentado mais suaves */
-    color: #333;
+    font-family:
+        'Inter',
+        -apple-system,
+        BlinkMacSystemFont,
+        'Segoe UI',
+        sans-serif;
+    background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+    color: var(--text-primary);
     line-height: 1.6;
-    padding: 2rem; /* Adiciona espaçamento nas laterais */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza o conteúdo horizontalmente */
-    justify-content: flex-start; /* Alinha o conteúdo no topo */
+    align-items: center;
+    padding: 3rem 1.5rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* ========================================= */
-/* CONTAINER PRINCIPAL (CARD)        */
+/* HEADER DO SISTEMA                         */
 /* ========================================= */
-/* Estilo para as caixas de conteúdo (login, escola, etc.) */
+body::before {
+    content: 'Sistema de Gestão Escolar';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 1.25rem 2rem;
+    border-bottom: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+    z-index: 100;
+    letter-spacing: -0.01em;
+}
+
+/* ========================================= */
+/* CONTAINERS PRINCIPAIS                     */
+/* ========================================= */
 .login-container {
-    background-color: #fff;
-    padding: 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    background: var(--surface);
+    padding: 3.5rem 3rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-light);
     width: 100%;
-    max-width: 400px; /* Largura máxima para formulários de login/escola */
-    margin-top: 2rem; /* Espaçamento do topo */
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+    max-width: 440px;
+    margin-top: 5rem;
 }
 
-.login-container:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-}
-
-/* O conteúdo da página de turma não está em um container, */
-/* então estilizamos os elementos dela individualmente. */
-/* O body flexível já os centraliza. */
 .turma-content {
-    background-color: #fff;
-    padding: 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    background: var(--surface);
+    padding: 3rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-light);
     width: 100%;
-    max-width: 800px; /* Container mais largo para a lista de alunos */
-    margin-top: 2rem;
+    max-width: 1400px;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
 }
 
 /* ========================================= */
-/* TÍTULOS                  */
+/* TÍTULOS                                   */
 /* ========================================= */
-h2,
-h3 {
-    text-align: center;
-    color: #3b5270; /* Cor primária */
-}
-
 h2 {
-    margin-bottom: 2rem;
-    font-size: 2em;
+    color: var(--text-primary);
+    margin-bottom: 2.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-top: 2rem;
+    text-align: left;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border-light);
 }
 
 h3 {
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 0.5rem;
+    color: var(--text-primary);
+    margin: 3rem 0 1.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-light);
+    letter-spacing: -0.01em;
 }
 
 /* ========================================= */
-/* FORMULÁRIOS                 */
+/* FORMULÁRIOS                               */
 /* ========================================= */
 form {
     display: flex;
     flex-direction: column;
-    gap: 1rem; /* Espaçamento entre os elementos do formulário */
+    gap: 1.5rem;
 }
 
 label {
-    font-weight: 600;
-    color: #555;
-    margin-bottom: -0.5rem; /* Aproxima a label do input */
+    font-weight: 500;
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    margin-bottom: -0.875rem;
+    display: block;
+    letter-spacing: -0.01em;
 }
 
 input[type='text'],
 input[type='password'],
 input[type='number'] {
     width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition:
-        border-color 0.3s,
-        box-shadow 0.3s;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-size: 0.9375rem;
+    font-family: inherit;
+    transition: all 0.15s ease;
+    background: var(--surface);
+    color: var(--text-primary);
+}
+
+input[type='text']:hover,
+input[type='password']:hover,
+input[type='number']:hover {
+    border-color: var(--secondary-color);
 }
 
 input[type='text']:focus,
 input[type='password']:focus,
 input[type='number']:focus {
-    border-color: #4a6a94; /* Cor primária ao focar */
-    box-shadow: 0 0 8px rgba(74, 106, 148, 0.25);
+    border-color: var(--primary-color);
     outline: none;
+    box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.08);
 }
 
-input[type='submit'] {
+input[type='submit'],
+button[type='submit'] {
     width: 100%;
-    padding: 14px;
-    background-color: #4a6a94;
+    padding: 0.875rem 1.5rem;
+    background: var(--primary-color);
     border: none;
     color: white;
-    font-weight: bold;
-    border-radius: 8px;
+    font-weight: 500;
+    border-radius: var(--radius-sm);
     cursor: pointer;
-    font-size: 1.1em;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition:
-        background-color 0.3s ease,
-        transform 0.2s ease;
+    font-size: 0.9375rem;
+    letter-spacing: -0.01em;
+    transition: all 0.15s ease;
+    font-family: inherit;
+    margin-top: 0.5rem;
 }
 
-input[type='submit']:hover {
-    background-color: #3b5270; /* Tom mais escuro */
-    transform: translateY(-2px);
+input[type='submit']:hover,
+button[type='submit']:hover {
+    background: var(--primary-dark);
 }
 
-input[type='submit']:active {
-    transform: translateY(0);
+input[type='submit']:active,
+button[type='submit']:active {
+    transform: translateY(1px);
+}
+
+button[name='limpar_turma'] {
+    background: var(--surface);
+    color: var(--danger-color);
+    border: 1px solid var(--border-color);
+    margin-top: 2rem;
+    font-weight: 500;
+}
+
+button[name='limpar_turma']:hover {
+    background: #fef2f2;
+    border-color: var(--danger-color);
 }
 
 /* ========================================= */
-/* MENSAGENS DE STATUS          */
+/* MENSAGENS DE STATUS                       */
 /* ========================================= */
 #acesso {
-    text-align: center;
+    text-align: left;
     margin-top: 1rem;
-    font-weight: bold;
-    color: #d8000c; /* Vermelho para erro */
-    min-height: 1.5em; /* Evita que o layout pule quando a mensagem aparece */
+    font-weight: 500;
+    color: var(--danger-color);
+    font-size: 0.875rem;
+    min-height: 1.5em;
 }
 
-/* Estilo para a mensagem de sucesso em turma.php */
 p[style*='color:green'] {
-    text-align: center;
-    font-weight: bold;
-    padding: 0.8rem;
-    background-color: #dff2bf;
-    color: #270 !important;
-    border-radius: 6px;
-    margin-bottom: 1.5rem;
+    font-weight: 500;
+    padding: 0.875rem 1rem;
+    background: #f0fdf4;
+    color: var(--success-color) !important;
+    border-radius: var(--radius-sm);
+    margin-bottom: 2rem;
+    border-left: 3px solid var(--success-color);
+    font-size: 0.9375rem;
 }
 
 /* ========================================= */
-/* TABELAS                   */
+/* TABELAS                                   */
 /* ========================================= */
 table {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 1.5rem;
-    font-size: 1rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    border-radius: 8px;
-    overflow: hidden; /* Garante que o border-radius seja aplicado nas bordas da tabela */
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 2rem;
+    font-size: 0.875rem;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--surface);
 }
 
 th,
 td {
-    padding: 12px 15px;
+    padding: 1rem 1.5rem;
     text-align: left;
-    border-bottom: 1px solid #ddd;
 }
 
 th {
-    background-color: #4a6a94;
+    background: var(--text-primary);
     color: white;
+    font-weight: 600;
+    font-size: 0.8125rem;
     text-transform: uppercase;
-    font-size: 0.85em;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.05em;
+    border: none;
 }
 
-/* Estilo de zebra para as linhas */
-tr:nth-child(even) {
-    background-color: #f8f9fa;
+th:first-child {
+    padding-left: 1.5rem;
 }
 
-tr:hover {
-    background-color: #e9ecef;
+th:last-child {
+    padding-right: 1.5rem;
+}
+
+td {
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+}
+
+td:first-child {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr {
+    transition: background-color 0.15s ease;
+    background: var(--surface);
+}
+
+tbody tr:nth-child(even) {
+    background: #fafafa;
+}
+
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+/* Estilos para situação do aluno */
+.aprovado {
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+.reprovado-falta {
+    color: var(--warning-color);
+    font-weight: 600;
+}
+
+.reprovado-nota {
+    color: var(--danger-color);
+    font-weight: 600;
 }
 
 /* ========================================= */
-/* RESPONSIVIDADE              */
+/* GRID DE FORMULÁRIO (2 COLUNAS)           */
 /* ========================================= */
-@media (max-width: 768px) {
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+/* ========================================= */
+/* RESPONSIVIDADE                            */
+/* ========================================= */
+@media (max-width: 1024px) {
     body {
-        padding: 1rem;
+        padding: 2.5rem 1.5rem;
     }
 
-    .login-container,
     .turma-content {
-        padding: 1.5rem;
-        margin-top: 1rem;
+        max-width: 100%;
+        padding: 2.5rem 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 2rem 1rem;
+    }
+
+    body::before {
+        font-size: 0.9375rem;
+        padding: 1rem 1.5rem;
+    }
+
+    .login-container {
+        padding: 2.5rem 2rem;
+        margin-top: 4.5rem;
+        max-width: 100%;
+    }
+
+    .turma-content {
+        padding: 2rem 1.5rem;
+        margin-top: 4.5rem;
     }
 
     h2 {
-        font-size: 1.5em;
+        font-size: 1.375rem;
+        margin-bottom: 2rem;
     }
+
+    h3 {
+        font-size: 1.0625rem;
+        margin: 2.5rem 0 1.25rem;
+    }
+
+    table {
+        font-size: 0.8125rem;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    th,
+    td {
+        padding: 0.875rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 1.5rem 0.75rem;
+    }
+
+    body::before {
+        font-size: 0.875rem;
+        padding: 0.875rem 1rem;
+    }
+
+    .login-container {
+        padding: 2rem 1.5rem;
+        border-radius: var(--radius-md);
+    }
+
+    .turma-content {
+        padding: 1.5rem 1rem;
+        border-radius: var(--radius-md);
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    input[type='text'],
+    input[type='password'],
+    input[type='number'],
+    input[type='submit'],
+    button[type='submit'] {
+        font-size: 0.875rem;
+        padding: 0.75rem 1rem;
+    }
+
+    th,
+    td {
+        padding: 0.75rem 0.875rem;
+        font-size: 0.8125rem;
+    }
+
+    form {
+        gap: 1.25rem;
+    }
+}
+
+/* ========================================= */
+/* ESTADOS DE CARREGAMENTO                   */
+/* ========================================= */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* ========================================= */
+/* UTILITÁRIOS                               */
+/* ========================================= */
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.mt-0 {
+    margin-top: 0;
+}
+
+.mt-1 {
+    margin-top: 0.5rem;
+}
+
+.mt-2 {
+    margin-top: 1rem;
+}
+
+.mt-3 {
+    margin-top: 1.5rem;
+}
+
+.mt-4 {
+    margin-top: 2rem;
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.mb-1 {
+    margin-bottom: 0.5rem;
+}
+
+.mb-2 {
+    margin-bottom: 1rem;
+}
+
+.mb-3 {
+    margin-bottom: 1.5rem;
+}
+
+.mb-4 {
+    margin-bottom: 2rem;
 }

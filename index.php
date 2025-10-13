@@ -54,9 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </form>
 
     <p id="acesso" style="color:red;">
-        <?php // Aqui usamos o "echo" para mostrar a mensagem de erro, se ela existir
-
-echo $mensagem_erro; ?>
+        <?php echo $mensagem_erro; ?>
     </p>
 </div>
 
