@@ -1,17 +1,38 @@
-// Adiciona um listener ao formulário de login
-document.getElementById('login-form').addEventListener('submit', function (e) {
-    // Pega os valores dos campos de usuário e senha
-    const usuario = document.getElementById('usuario').value.trim();
-    const senha = document.getElementById('senha').value.trim();
-    const acesso = document.getElementById('acesso');
+// Validação do formulário de login
+const loginForm = document.getElementById('login-form');
 
-    // Verifica se algum dos campos está vazio
-    if (!usuario || !senha) {
-        // Se estiverem vazios, impede o envio do formulário
-        e.preventDefault();
+if (loginForm) {
+    loginForm.addEventListener('submit', function (e) {
+        const usuario = document.getElementById('usuario').value.trim();
+        const senha = document.getElementById('senha').value.trim();
+        const acesso = document.getElementById('acesso');
 
-        // Mostra uma mensagem de erro imediata para o usuário
-        acesso.textContent = 'Por favor, preencha todos os campos.';
-    }
-    // Se os campos estiverem preenchidos, o formulário será enviado normalmente para o PHP.
-});
+        // Verifica se algum dos campos está vazio
+        if (!usuario || !senha) {
+            e.preventDefault();
+
+            if (acesso) {
+                acesso.textContent = 'Por favor, preencha todos os campos.';
+                acesso.style.color = 'red';
+            }
+
+            // Foca no primeiro campo vazio
+            if (!usuario) {
+                document.getElementById('usuario').focus();
+            } else {
+                document.getElementById('senha').focus();
+            }
+        }
+    });
+
+    // Remove a mensagem de erro quando o usuário começa a digitar
+    const inputs = loginForm.querySelectorAll('input[type="text"], input[type="password"]');
+    inputs.forEach((input) => {
+        input.addEventListener('input', function () {
+            const acesso = document.getElementById('acesso');
+            if (acesso && acesso.textContent === 'Por favor, preencha todos os campos.') {
+                acesso.textContent = '';
+            }
+        });
+    });
+}
